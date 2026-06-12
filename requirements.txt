@@ -1,0 +1,9 @@
+# Runtime (all stdlib — no third-party dependencies required)
+# Agentic Systems relies only on the Python standard library so it can be
+# used without any pip installs.
+
+# Optional integrations (uncomment to enable)
+# anthropic>=0.28       # Anthropic Claude API client
+# openai>=1.0           # OpenAI API client
+# httpx>=0.27           # Async HTTP for custom tool integrations
+# rich>=13.0            # Pretty terminal output
