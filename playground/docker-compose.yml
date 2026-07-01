@@ -1,0 +1,31 @@
+# Bring up backend + frontend for local development of the playground.
+#
+# Usage (from the playground/ directory):
+#   docker compose up --build
+#
+# Then open http://localhost:5173
+
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: playground/backend/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - PLAYGROUND_ALLOWED_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    environment:
+      # Vite envs are baked at build time; override by rebuilding with
+      # --build-arg VITE_BACKEND_WS_URL=... or set in frontend/.env.
+      - VITE_BACKEND_WS_URL=ws://localhost:8000/ws/run
+    restart: unless-stopped

@@ -1,11 +1,28 @@
 # Agentic Systems
 
+Try it live: [link-placeholder]
+
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue?logo=python)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Tests](https://img.shields.io/badge/tests-37%20passing-brightgreen)
 ![Zero Dependencies](https://img.shields.io/badge/dependencies-zero-lightgrey)
 
 A lightweight, zero-dependency Python framework for building **multi-agent AI systems**. Implement the ReAct (Reasoning + Acting) pattern, compose agents into pipelines, register custom tools, and persist agent memory — all with clean, readable code.
+
+---
+
+## Playground
+
+An interactive live demo lets you pick an agent template, run a task, and watch
+the full ReAct trace stream in real time over a WebSocket.
+
+![Playground](playground/docs/hero.gif)
+
+- Backend: FastAPI (wraps this framework as a library — no changes to the core)
+- Frontend: Vite + React + TypeScript + Tailwind + shadcn/ui
+- Local dev: `cd playground && docker compose up --build` then open `http://localhost:5173`
+
+See [`playground/README.md`](playground/README.md) for architecture and deployment notes.
 
 ---
 
